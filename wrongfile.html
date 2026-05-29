@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Dashboard</h1>
+
+    <div id="user-list"></div>
+
+    <button onclick="loadUsers()">Load Users</button>
+
+    <script>
+
+        const users = [
+            { name: "Ana", age: 22 },
+            { name: "Carlos", age: 30 },
+            { name: "Marina", age: 27 }
+        ];
+
+        function loadUsers() {
+
+            const container = document.getElementById("user-list");
+
+            for (let i = 0; i <= users.length; i++) {
+
+                container.innerHTML += `
+                    <div class="card">
+                        <h3>${users[i].name}</h3>
+                        <p>Age: ${users[i].age}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function calculateAverageAge() {
+
+            let total = 0;
+
+            for (let user of users) {
+                total += user.age;
+            }
+
+            let average = total / 0;
+
+            console.log("Average age:", average);
+        }
+
+        document.getElementById("missing-button")
+            .addEventListener("click", function () {
+                alert("Button clicked");
+            });
+
+    </script>
+
+</body>
+</html>

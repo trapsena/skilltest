@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #load-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #average-btn {
+            background-color: #28a745;
+            color: white;
+            margin-left: 10px;
+        }
+
+        #average-result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Dashboard</h1>
+
+    <div id="user-list"></div>
+
+    <button id="load-btn">Load Users</button>
+    <button id="average-btn">Calculate Average Age</button>
+
+    <p id="average-result"></p>
+
+    <script>
+
+        const users = [
+            { name: "Ana", age: 22 },
+            { name: "Carlos", age: 30 },
+            { name: "Marina", age: 27 }
+        ];
+
+        function renderUsers() {
+            const container = document.getElementById("user-list");
+
+            container.innerHTML = "";
+
+            users.forEach(user => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                card.innerHTML = `
+                    <h3>${user.name}</h3>
+                    <p>Age: ${user.age}</p>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function calculateAverageAge() {
+            const totalAge = users.reduce(
+                (sum, user) => sum + user.age,
+                0
+            );
+
+            const average = totalAge / users.length;
+
+            document.getElementById("average-result").textContent =
+                `Average age: ${average.toFixed(1)}`;
+        }
+
+        document
+            .getElementById("load-btn")
+            .addEventListener("click", renderUsers);
+
+        document
+            .getElementById("average-btn")
+            .addEventListener("click", calculateAverageAge);
+
+    </script>
+
+</body>
+</html>

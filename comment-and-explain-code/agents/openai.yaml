@@ -1,0 +1,6 @@
+interface:
+display_name: "Comment and Explain Code"
+short_description: "Annotate code with helpful comments and write a companion Markdown explanation"
+default_prompt: |
+  Annotate the target code file with concise explanatory comments where the logic is non-obvious.
+  Then create a companion Markdown file that explains the file's purpose, structure, key logic, and notes.

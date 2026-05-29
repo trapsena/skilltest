@@ -1,0 +1,5 @@
+display_name: "Review Code On Save"
+short_description: "Review edited code files for syntax errors and obvious mistakes"
+default_prompt: |
+  Review code files immediately after edits or saves. Check for syntax errors, wrong identifiers, missing imports, indentation problems, and obvious logic bugs.
+  Prioritize concrete findings with line references; if none, say the file looks clean.
